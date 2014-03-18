@@ -3,183 +3,183 @@
 
 ; Specify the Instance ID for the SQL Server features you have specified. SQL Server directory structure, registry structure, and service names will reflect the instance ID of the SQL Server instance. 
 
-INSTANCEID="<%= node['mssql']['instanceid'] %>"
+INSTANCEID="<%= node['mssql']['config_ini']['instancename'] %>"
 
 ; Specifies a Setup work flow, like INSTALL, UNINSTALL, or UPGRADE. This is a required parameter. 
 
-ACTION="<%= node['mssql']['action'] %>"
+ACTION="<%= node['mssql']['config_ini']['action'] %>"
 
 ; Specifies features to install, uninstall, or upgrade. The list of top-level features include SQL, AS, RS, IS, and Tools. The SQL feature will install the database engine, replication, and full-text. The Tools feature will install Management Tools, Books online, Business Intelligence Development Studio, and other shared components. 
 
-FEATURES="<%= node['mssql']['features'] %>"
+FEATURES="<%= node['mssql']['config_ini']['features'] %>"
 
 ; Displays the command line parameters usage 
 
-HELP="<%= node['mssql']['help'] %>"
+HELP="<%= node['mssql']['config_ini']['help'] %>"
 
 ; Specifies that the detailed Setup log should be piped to the console. 
 
-INDICATEPROGRESS="<%= node['mssql']['indicateprogress'] %>"
+INDICATEPROGRESS="<%= node['mssql']['config_ini']['indicateprogress'] %>"
 
 ; Setup will not display any user interface. 
 
-QUIET="<%= node['mssql']['quiet'] %>"
+QUIET="<%= node['mssql']['config_ini']['quiet'] %>"
 
 ; Setup will display progress only without any user interaction. 
 
-QUIETSIMPLE="<%= node['mssql']['quietsimple'] %>"
+QUIETSIMPLE="<%= node['mssql']['config_ini']['quietsimple'] %>"
 
 ; Specifies that Setup should install into WOW64. This command line argument is not supported on an IA64 or a 32-bit system. 
 
-X86="<%= node['mssql']['x86'] %>"
+X86="<%= node['mssql']['config_ini']['x86'] %>"
 
 ; Detailed help for command line argument ENU has not been defined yet. 
 
-ENU="<%= node['mssql']['enu'] %>"
+ENU="<%= node['mssql']['config_ini']['enu'] %>"
 
 
 ; Specify if errors can be reported to Microsoft to improve future SQL Server releases. Specify 1 or True to enable and 0 or False to disable this feature. 
 
-ERRORREPORTING="<%= node['mssql']['errorreporting'] %>"
+ERRORREPORTING="<%= node['mssql']['config_ini']['errorreporting'] %>"
 
 ; Specify the root installation directory for native shared components. 
 
-INSTALLSHAREDDIR="<%= node['mssql']['installshareddir'] %>"
+INSTALLSHAREDDIR="<%= node['mssql']['config_ini']['installshareddir'] %>"
 
 ; Specify the root installation directory for the WOW64 shared components. 
 
-INSTALLSHAREDWOWDIR="<%= node['mssql']['installsharedwowdir'] %>"
+INSTALLSHAREDWOWDIR="<%= node['mssql']['config_ini']['installsharedwowdir'] %>"
 
 ; Specify the installation directory. 
 
-INSTANCEDIR="<%= node['mssql']['instancedir'] %>"
+INSTANCEDIR="<%= node['mssql']['config_ini']['instancedir'] %>"
 
 ; Specify that SQL Server feature usage data can be collected and sent to Microsoft. Specify 1 or True to enable and 0 or False to disable this feature. 
 
-SQMREPORTING="<%= node['mssql']['sqmreporting'] %>"
+SQMREPORTING="<%= node['mssql']['config_ini']['sqmreporting'] %>"
 
 ; Specify a default or named instance. MSSQLSERVER is the default instance for non-Express editions and SQLExpress for Express editions. This parameter is required when installing the SQL Server Database Engine (SQL), Analysis Services (AS), or Reporting Services (RS). 
 
-INSTANCENAME="<%= node['mssql']['instancename'] %>"
+INSTANCENAME="<%= node['mssql']['config_ini']['instancename'] %>"
 
 ; specify Admin account
 
-SQLSYSADMINACCOUNTS="<%= node['mssql']['sqlsysadminaccounts'] %>"
+SQLSYSADMINACCOUNTS="<%= node['mssql']['config_ini']['sqlsysadminaccounts'] %>"
 
 ; Agent account name 
 
-AGTSVCACCOUNT="<%= node['mssql']['agtsvcaccount'] %>"
+AGTSVCACCOUNT="<%= node['mssql']['config_ini']['agtsvcaccount'] %>"
 
 
-AGTSVCPASSWORD="<%= node['mssql']['agtsvcpassword'] %>"
+AGTSVCPASSWORD="<%= node['mssql']['config_ini']['agtsvcpassword'] %>"
 
 ; Auto-start service after installation.  
 
-AGTSVCSTARTUPTYPE="<%= node['mssql']['agtsvcstartuptype'] %>"
+AGTSVCSTARTUPTYPE="<%= node['mssql']['config_ini']['agtsvcstartuptype'] %>"
 
 ; Startup type for Integration Services. 
 
 
 
-ASSVCSTARTUPTYPE="<%= node['mssql']['assvcstartuptype'] %>"
+ASSVCSTARTUPTYPE="<%= node['mssql']['config_ini']['assvcstartuptype'] %>"
 
 ; The collation to be used by Analysis Services. 
 
-ASCOLLATION="<%= node['mssql']['ascollation'] %>"
+ASCOLLATION="<%= node['mssql']['config_ini']['ascollation'] %>"
 
 ; The location for the Analysis Services data files. 
 
-ASDATADIR="<%= node['mssql']['asdatadir'] %>"
+ASDATADIR="<%= node['mssql']['config_ini']['asdatadir'] %>"
 
 ; The location for the Analysis Services log files. 
 
-ASLOGDIR="<%= node['mssql']['aslogdir'] %>"
+ASLOGDIR="<%= node['mssql']['config_ini']['aslogdir'] %>"
 
 ; The location for the Analysis Services backup files. 
 
-ASBACKUPDIR="<%= node['mssql']['asbackupdir'] %>"
+ASBACKUPDIR="<%= node['mssql']['config_ini']['asbackupdir'] %>"
 
 ; The location for the Analysis Services temporary files. 
 
-ASTEMPDIR="<%= node['mssql']['astempdir'] %>"
+ASTEMPDIR="<%= node['mssql']['config_ini']['astempdir'] %>"
 
 ; The location for the Analysis Services configuration files. 
 
-ASCONFIGDIR="<%= node['mssql']['asconfigdir'] %>"
+ASCONFIGDIR="<%= node['mssql']['config_ini']['asconfigdir'] %>"
 
 ; Specifies whether or not the MSOLAP provider is allowed to run in process. 
 
-ASPROVIDERMSOLAP="<%= node['mssql']['asprovidermsolap'] %>"
+ASPROVIDERMSOLAP="<%= node['mssql']['config_ini']['asprovidermsolap'] %>"
 
 ; A port number used to connect to the SharePoint Central Administration web application. 
 
-FARMADMINPORT="<%= node['mssql']['farmadminport'] %>"
+FARMADMINPORT="<%= node['mssql']['config_ini']['farmadminport'] %>"
 
 ; Startup type for the SQL Server service. 
 
-SQLSVCSTARTUPTYPE="<%= node['mssql']['sqlsvcstartuptype'] %>"
+SQLSVCSTARTUPTYPE="<%= node['mssql']['config_ini']['sqlsvcstartuptype'] %>"
 
 ; Level to enable FILESTREAM feature at (0, 1, 2 or 3). 
 
-FILESTREAMLEVEL="<%= node['mssql']['filestreamlevel'] %>"
+FILESTREAMLEVEL="<%= node['mssql']['config_ini']['filestreamlevel'] %>"
 
 ; Set to "1" to enable RANU for SQL Server Express. 
 
-ENABLERANU="<%= node['mssql']['enableranu'] %>"
+ENABLERANU="<%= node['mssql']['config_ini']['enableranu'] %>"
 
 ; Specifies a Windows collation or an SQL collation to use for the Database Engine. 
 
-SQLCOLLATION="<%= node['mssql']['sqlcollation'] %>"
+SQLCOLLATION="<%= node['mssql']['config_ini']['sqlcollation'] %>"
 
 ; Account for SQL Server service: Domain\User or system account. 
 
-SQLSVCACCOUNT="<%= node['mssql']['sqlsvcaccount'] %>"
+SQLSVCACCOUNT="<%= node['mssql']['config_ini']['sqlsvcaccount'] %>"
 
 ; Windows account(s) to provision as SQL Server system administrators. 
 
-SQLSYSADMINACCOUNTS="<%= node['mssql']['sqlsysadminaccounts'] %>"
+SQLSYSADMINACCOUNTS="<%= node['mssql']['config_ini']['sqlsysadminaccounts'] %>"
 
 ; The default is Windows Authentication. Use "SQL" for Mixed Mode Authentication. 
 
-SECURITYMODE="<%= node['mssql']['securitymode'] %>"
+SECURITYMODE="<%= node['mssql']['config_ini']['securitymode'] %>"
 
 ; SA password
 
-SAPWD="<%= node['mssql']['sapwd'] %>"
+SAPWD="<%= node['mssql']['config_ini']['sapwd'] %>"
 
 ; The Database Engine root data directory. 
 
-INSTALLSQLDATADIR="<%= node['mssql']['installsqldatadir'] %>"
+INSTALLSQLDATADIR="<%= node['mssql']['config_ini']['installsqldatadir'] %>"
 
 ; Default directory for the Database Engine user database logs. 
 
-SQLUSERDBLOGDIR="<%= node['mssql']['sqluserdblogdir'] %>"
+SQLUSERDBLOGDIR="<%= node['mssql']['config_ini']['sqluserdblogdir'] %>"
 
 ; Directory for the Database Engine TempDB log files. 
 
-SQLTEMPDBLOGDIR="<%= node['mssql']['sqltempdblogdir'] %>"
+SQLTEMPDBLOGDIR="<%= node['mssql']['config_ini']['sqltempdblogdir'] %>"
 
 ; Provision current user as a Database Engine system administrator for SQL Server 2008 R2 Express. 
 
-IACCEPTSQLSERVERLICENSETERMS="<%= node['mssql']['iacceptsqlserverlicenseterms'] %>"
+IACCEPTSQLSERVERLICENSETERMS="<%= node['mssql']['config_ini']['iacceptsqlserverlicenseterms'] %>"
 
 ; Specify 0 to disable or 1 to enable the TCP/IP protocol. 
 
-TCPENABLED="<%= node['mssql']['tcpenabled'] %>"
+TCPENABLED="<%= node['mssql']['config_ini']['tcpenabled'] %>"
 
 ; Specify 0 to disable or 1 to enable the Named Pipes protocol. 
 
-NPENABLED="<%= node['mssql']['npenabled'] %>"
+NPENABLED="<%= node['mssql']['config_ini']['npenabled'] %>"
 
 ; Startup type for Browser Service. 
 
-BROWSERSVCSTARTUPTYPE="<%= node['mssql']['browsersvcstartuptype'] %>"
+BROWSERSVCSTARTUPTYPE="<%= node['mssql']['config_ini']['browsersvcstartuptype'] %>"
 
 ; Specifies how the startup mode of the report server NT service.  When 
 ; Manual - Service startup is manual mode (default).
 ; Automatic - Service startup is automatic mode.
 ; Disabled - Service is disabled 
 
-RSSVCSTARTUPTYPE="<%= node['mssql']['rssvcstartuptype'] %>
+RSSVCSTARTUPTYPE="<%= node['mssql']['config_ini']['rssvcstartuptype'] %>
 
 

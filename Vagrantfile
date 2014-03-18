@@ -43,9 +43,11 @@ Vagrant.configure("2") do |config|
       #chef.cookbooks_path = ['cookbooks', '/Users/johnsmyth/.berkshelf/cookbooks','/Users/johnsmyth/.berkshelf/cookbooks/openssl-1.1.0'] 
       chef.json = {
         'mssql' => {
-          #'instance_name' => 'MSSQL_TEST_INST',
+          'config_ini' => {
+            'instancename' => 'NAMED_INST'
           #'instance_name' => 'MSSQLSERVER',
           #'accept_eula' => 'true'
+          }
         }, 
         :minitest => {
           :ci_reports => '/tmp/chefci'

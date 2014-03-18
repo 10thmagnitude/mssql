@@ -7,11 +7,11 @@
   #service_name = "MSSQL$#{node['mssql']['instancename']}"
 #end
 #
-static_tcp_reg_key = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\\' + node['mssql']['reg_version'] +  node['mssql']['instancename']  + '\MSSQLServer\SuperSocketNetLib\Tcp\IPAll'
+static_tcp_reg_key = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\\' + node['mssql']['reg_version'] +  node['mssql']['config_ini']['instancename']  + '\MSSQLServer\SuperSocketNetLib\Tcp\IPAll'
 
 # generate and set a password for the 'sa' super user
-node.set_unless['mssql']['agtsvcpassword'] =  "#{secure_password}-aA13"
-node.set_unless['mssql']['sapwd'] = "#{secure_password}-aA13"
+node.set_unless['mssql']['config_ini']['agtsvcpassword'] =  "#{secure_password}-aA13"
+node.set_unless['mssql']['config_ini']['sapwd'] = "#{secure_password}-aA13"
 # force a save so we don't lose our generated password on a failed chef run
 node.save unless Chef::Config[:solo]
 
@@ -63,7 +63,7 @@ end
 # unlock port in firewall
 # # this should leverage firewall_rule resource
 # # once COOK-689 is completed
-# firewall_rule_name = "#{node['mssql']['instancename']} Static Port"
+# firewall_rule_name = "#{node['mssql']['config_ini']['instancename']} Static Port"
 #
 # execute "open-static-port" do
 #   command "netsh advfirewall firewall add rule name=\"#{firewall_rule_name}\" dir=in action=allow protocol=TCP localport=#{node['mssql']['port']}"
