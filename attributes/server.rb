@@ -58,3 +58,9 @@ default['mssql']['npenabled'] = '1'
 default['mssql']['browsersvcstartuptype'] = 'Automatic'
 default['mssql']['rssvcstartuptype'] = 'Automatic'
 
+if node['mssql']['instancename'] == 'MSSQLSERVER'
+  default['mssql']['service_name'] = node['mssql']['instancename']
+else
+  default['mssql']['service_name'] = "MSSQL$#{node['mssql']['instancename']}"
+end
+

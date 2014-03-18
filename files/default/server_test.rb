@@ -3,11 +3,12 @@ include Helpers::Mssql
 
 
   describe_recipe "mssql::server" do
-    #        if node['mssql']['instance_name'] == 'MSSQLSERVER'
-    #          @service_name = node['mssql']['instance_name']
-    #        else
-    #          @service_name = "MSSQL$#{node['mssql']['instance_name']}"
-    #        end
+
+#            if node['mssql']['instancename'] == 'MSSQLSERVER'
+#              service_name = node['mssql']['instancename']
+#            else
+  #            service_name = "MSSQL$#{node['mssql']['instancename']}"
+#            end
     describe "packages" do
             # = Checking for package install =
 #        it "installs SQL Server" do
@@ -33,9 +34,9 @@ include Helpers::Mssql
     describe 'services' do
 
 
-      #it "should be running as a service" do
-        #service(service_name).must_be_running
-      #end
+      it "should be running as a service" do
+        service(node['mssql']['service_name']).must_be_running
+      end
       #it "boots on startup" do
         #service(service_name).must_be_enabled
       #end

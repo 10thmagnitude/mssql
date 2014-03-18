@@ -1,12 +1,12 @@
 
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 
-#if node['mssql']['instancename'] == 'MSSQLSERVER'
-  #service_name = node['mssql']['instancename']
-#else
-  #service_name = "MSSQL$#{node['mssql']['instancename']}"
-#end
-#
+if node['mssql']['instancename'] == 'MSSQLSERVER'
+  service_name = node['mssql']['instancename']
+else
+  service_name = "MSSQL$#{node['mssql']['instancename']}"
+end
+  
 static_tcp_reg_key = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\\' + node['mssql']['reg_version'] +  node['mssql']['instancename']  + '\MSSQLServer\SuperSocketNetLib\Tcp\IPAll'
 
 # generate and set a password for the 'sa' super user
@@ -49,7 +49,7 @@ end
     #device "#{node['mssql']['install_share']}"
 #end
 
-service node['mssql']['service_name'] do
+service service_name do
   action :nothing
 end
 
@@ -57,7 +57,7 @@ end
 registry_key static_tcp_reg_key do
   values [{ :name => 'TcpPort', :type => :string, :data => node['mssql']['port'].to_s },
     { :name => 'TcpDynamicPorts', :type => :string, :data => '' }]
-  notifies :restart, "service[#{node['mssql']['service_name']}]", :immediately
+  notifies :restart, "service[#{service_name}]", :immediately
 end
 
 # unlock port in firewall
