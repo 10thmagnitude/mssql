@@ -1,0 +1,58 @@
+default['sql_server']['port'] = "1433"
+default['sql_server']['installer_timeout'] = 1500
+
+if kernel['machine'] =~ /x86_64/
+    default['sql_server']['server']['package_name'] = 'Microsoft SQL Server 2008 (64-bit)'
+else
+    default['sql_server']['server']['package_name'] = 'Microsoft SQL Server 2008 R2 (32-bit)'
+end
+
+default['sql_server']['install_drive'] = "Z:"
+default['sql_server']['install_share'] = "\\\\10.0.1.98\\documents"
+default['sql_server']['install_path'] = "/software/SQLSTD/SQLFULL_ENU/setup.exe"
+
+default['sql_server']['instanceid'] = "MSSQLSERVER"
+default['sql_server']['action'] = "Install"
+default['sql_server']['features'] = "SQLENGINE,BIDS,CONN,SSMS,ADV_SSMS"
+default['sql_server']['help'] = "False"
+default['sql_server']['indicateprogress'] = "False"
+default['sql_server']['quiet'] = "True"
+default['sql_server']['quietsimple'] = "False"
+default['sql_server']['x86'] = "False"
+default['sql_server']['enu'] = "True"
+default['sql_server']['errorreporting'] = "False"
+default['sql_server']['installshareddir'] = "C:\Program Files\Microsoft SQL Server"
+default['sql_server']['installsharedwowdir'] = "C:\Program Files (x86)\Microsoft SQL Server"
+default['sql_server']['instancedir'] = "C:\Program Files\Microsoft SQL Server"
+default['sql_server']['sqmreporting'] = "False"
+default['sql_server']['instancename'] = "MSSQLSERVER"
+default['sql_server']['sqlsysadminaccounts'] = "Administrators"
+default['sql_server']['agtsvcaccount'] = "NT AUTHORITY\NETWORK SERVICE"
+#default['sql_server']['agtsvcpassword'] = "!"
+default['sql_server']['agtsvcstartuptype'] = "Manual"
+default['sql_server']['assvcstartuptype'] = "Automatic"
+default['sql_server']['ascollation'] = "Latin1_General_CI_AS"
+default['sql_server']['asdatadir'] = "Data"
+default['sql_server']['aslogdir'] = "Log"
+default['sql_server']['asbackupdir'] = "Backup"
+default['sql_server']['astempdir'] = "Temp"
+default['sql_server']['asconfigdir'] = "Config"
+default['sql_server']['asprovidermsolap'] = "1"
+default['sql_server']['farmadminport'] = "0"
+default['sql_server']['sqlsvcstartuptype'] = "Automatic"
+default['sql_server']['filestreamlevel'] = "0"
+default['sql_server']['enableranu'] = "False"
+default['sql_server']['sqlcollation'] = "SQL_Latin1_General_CP1_CI_AS"
+default['sql_server']['sqlsvcaccount'] = "NT AUTHORITY\SYSTEM"
+default['sql_server']['sqlsysadminaccounts'] = "Administrators"
+default['sql_server']['securitymode'] = "SQL"
+#default['sql_server']['sapwd'] = ""
+default['sql_server']['installsqldatadir'] = "C:\Data"
+default['sql_server']['sqluserdblogdir'] = "C:\Logs"
+default['sql_server']['sqltempdblogdir'] = "C:\Logs"
+default['sql_server']['iacceptsqlserverlicenseterms'] = "True"
+default['sql_server']['tcpenabled'] = "1"
+default['sql_server']['npenabled'] = "1"
+default['sql_server']['browsersvcstartuptype'] = "Automatic"
+default['sql_server']['rssvcstartuptype'] = "Automatic"
+
